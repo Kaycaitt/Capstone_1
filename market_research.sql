@@ -34,8 +34,8 @@ WHERE `Breach Submission Date` BETWEEN '2024-01-01' AND '2024-03-31'
 ORDER BY `Type of Breach`;
 
 #Number of Individuals Affected v. Type of Breach#
-SELECT `State`, `Individuals Affected` AS 'Affected Individuals', `Location of Breached Information` AS 'Breach Location' FROM market_research.breach_report
-GROUP BY `State`;
+SELECT `State`, COUNT(`Individuals Affected`) AS 'Affected Individuals', `Location of Breached Information` AS 'Breach Location' FROM market_research.breach_report
+GROUP BY `State`, `Location of Breached Information`;
 
 #Searching for top 50 companies with the highest # of individuals affected#
 SELECT `Name of Covered Entity`, `Individuals Affected`, `Type of Breach`, `Location of Breached Information` FROM market_research.breach_report
